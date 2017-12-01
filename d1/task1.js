@@ -15,8 +15,15 @@ What is the solution to your captcha?
 */
 
 function solution(str) {
-	// Algorithm here
-	return 0;
+	str = str + str[0]; // Adding first char for easier loop
+	var ret = 0;
+
+	for (var i = 1, max = str.length; i < max; i++) {
+		//If previous letter is the same, add it to accumulator
+		if (str[i] == str[i-1]) ret += parseInt(str[i]);
+	}
+
+	return ret;
 }
 
 var testCases = [

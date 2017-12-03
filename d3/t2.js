@@ -115,12 +115,14 @@ function solution(ourNum) {
 	pointer.write(1);
 
 	// Simple algorithm: 1. Collect neighbours, write it and move along. If corner, change direction	
+	// Do it until you find value bigger than our number input
 	for (var i = 1; pointer.read() < ourNum; i ++) {
 		pointer.move(dir.current);
 		pointer.write(pointer.readAround());
 		if (pointer.isCorner()) dir.change();
 	}
 
+	// We have found first valu ebigger than our number input
 	return pointer.read();
 }
 
